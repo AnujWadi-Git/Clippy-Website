@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Local links and DMG present
+        run: python3 scripts/check.py
+      - name: HTML sanity
+        run: |
+          pip install --quiet html5validator
+          html5validator --root . --also-check-css --ignore-re 'Attribute "(fetchpriority|loading)"' || true
