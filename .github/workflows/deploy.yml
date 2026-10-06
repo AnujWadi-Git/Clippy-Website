@@ -25,10 +25,10 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create ${{ vars.CF_PAGES_PROJECT || 'clippy' }} --production-branch=main
+          command: pages project create ${{ vars.CF_PAGES_PROJECT || 'clippy-for-mac' }} --production-branch=main
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=${{ vars.CF_PAGES_PROJECT || 'clippy' }} --branch=main
+          command: pages deploy . --project-name=${{ vars.CF_PAGES_PROJECT || 'clippy-for-mac' }} --branch=main

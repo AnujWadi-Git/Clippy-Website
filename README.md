@@ -8,7 +8,7 @@ Static download page for [Clippy](https://github.com/AnujWadi-Git/Clippy). No bu
 
 ## One-time setup
 Repo secrets: `CLOUDFLARE_API_TOKEN` (Pages: Edit), `CLOUDFLARE_ACCOUNT_ID`.
-Optional repo variable `CF_PAGES_PROJECT` (defaults to `clippy`).
+Optional repo variable `CF_PAGES_PROJECT` (defaults to `clippy-for-mac`).
 
 ## Shipping a new app version
 Copy the new `Clippy.dmg` from the app repo's Release into `clippy/`, commit, push.
