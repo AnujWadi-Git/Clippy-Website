@@ -9,13 +9,13 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
 :root{
-  --bg:#fafafa;--bg2:#f1f0f4;--card:#fff;--ink:#16151a;--ink2:#5d5b66;--line:#e4e2ea;
+  --bg:#fff;--bg2:#f6f6f7;--card:#fff;--ink:#0d0d0f;--ink2:#5f5f66;--line:#e6e6e9;
   --accent:#7c3aed;--accent-ink:#5b21b6;--tint:linear-gradient(135deg,#e9defd,#cfc3f7 55%,#b9b0f0);
   --font:-apple-system,BlinkMacSystemFont,"Helvetica Neue",system-ui,sans-serif;
   --serif:ui-serif,"New York",Georgia,serif;
 }
 @media(prefers-color-scheme:dark){:root{
-  --bg:#0f0e12;--bg2:#17161b;--card:#1b1a20;--ink:#f3f2f6;--ink2:#a09eab;--line:#2a2830;
+  --bg:#0b0b0c;--bg2:#131315;--card:#161618;--ink:#f4f4f5;--ink2:#9d9da6;--line:#26262a;
   --accent:#8b5cf6;--accent-ink:#c4b0ff;--tint:linear-gradient(135deg,#3b2a73,#2c2257 55%,#241d4a);
 }}
 *{box-sizing:border-box;margin:0}
@@ -56,19 +56,23 @@ nav .sp{flex:1}
 .hero .grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(40px,5vw,96px);align-items:center}
 .shot{background:var(--tint);border-radius:32px;padding:clamp(28px,3.4vw,72px) 0 clamp(28px,3.4vw,72px) clamp(28px,3.4vw,72px);overflow:hidden}
 .shot img{border-radius:14px 0 0 14px;box-shadow:0 30px 60px -20px #0006,0 0 0 1px #ffffff1a}
-h1{font:600 clamp(2.4rem,1rem + 4vw,5rem)/1.04 var(--font);letter-spacing:-.03em}
+h1{font:400 clamp(2.5rem,1rem + 4.2vw,5.2rem)/1.02 var(--serif);letter-spacing:-.025em}
 .lede{margin:22px 0 32px;color:var(--ink2);font-size:clamp(1.1rem,.9rem + .5vw,1.4rem);max-width:30em}
 .cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .fine{margin-top:18px;font-size:.88rem;color:var(--ink2)}
 
 /* sections */
 section{padding:clamp(60px,6vw,120px) 0}
-h2{font:600 clamp(1.9rem,1.1rem + 2.4vw,3.2rem)/1.1 var(--font);letter-spacing:-.025em}
+h2{font:400 clamp(2rem,1.1rem + 2.6vw,3.4rem)/1.08 var(--serif);letter-spacing:-.02em}
 .sub{color:var(--ink2);margin-top:14px;max-width:34em}
 .alt{background:var(--bg2)}
 
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}
+.cards{display:grid;grid-template-columns:minmax(0,1fr);margin-top:36px;border-top:1px solid var(--line)}
 .card{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.step{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:clamp(20px,4vw,72px);padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.step h3{font:500 1.15rem var(--font);letter-spacing:-.01em}
+.step p{color:var(--ink2)}
+.step .cmd{margin-top:14px}
 .card h3{font:600 1.15rem var(--font);margin-bottom:8px;letter-spacing:-.01em}
 .card p{color:var(--ink2);font-size:.98rem}
 .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:.9rem;margin-bottom:16px}
@@ -98,11 +102,15 @@ details[open] summary:after{content:"–"}
 details p{color:var(--ink2);margin-top:12px;max-width:42em}
 .faq{max-width:760px;margin-top:36px}
 
-footer{border-top:1px solid var(--line);padding:36px 0;color:var(--ink2);font-size:.9rem}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer a{text-decoration:none}footer a:hover{color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:56px 0 28px;color:var(--ink2);font-size:.92rem}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:32px}
+.fgrid h4{font:500 .9rem var(--font);color:var(--ink);margin-bottom:12px}
+.fgrid a{display:block;text-decoration:none;padding:4px 0}.fgrid a:hover{color:var(--ink)}
+.fbrand img{border-radius:8px;margin-bottom:12px}.fbrand p{max-width:22em}
+.fbase{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem}
+@media(max-width:800px){.fgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.fbrand{grid-column:1/-1}}
 
-@media(max-width:1100px){.cards{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.step{grid-template-columns:minmax(0,1fr);gap:8px}}
 @media(max-width:900px){
   .hero .grid,.row,.privacy{grid-template-columns:minmax(0,1fr)}
   .row.flip .txt{order:0}
@@ -149,10 +157,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
       <h2>Get started</h2>
       <p class="sub">Three steps, about a minute.</p>
       <div class="cards">
-        <div class="card"><div class="num">1</div><h3>Download and drag</h3><p>Open <b>Clippy.dmg</b> and drag Clippy into Applications.</p></div>
-        <div class="card"><div class="num">2</div><h3>Open it once</h3><p>Clippy isn’t Apple-notarized yet, so macOS may block it. Right-click, choose Open, or run this in Terminal:</p>
-          <div class="cmd"><code id="cmd">xattr -dr com.apple.quarantine /Applications/Clippy.app</code><button type="button" id="copy">Copy</button></div></div>
-        <div class="card"><div class="num">3</div><h3>Press <kbd>⌥</kbd> <kbd>V</kbd></h3><p>Your history opens above whatever you’re doing. Allow Accessibility so Clippy can paste for you.</p></div>
+        <div class="step"><h3>1. Download and drag</h3><p>Open <b>Clippy.dmg</b> and drag Clippy into Applications.</p></div>
+        <div class="step"><h3>2. Open it once</h3><div><p>Clippy isn’t Apple-notarized yet, so macOS may block it. Right-click, choose Open, or run this in Terminal:</p>
+          <div class="cmd"><code id="cmd">xattr -dr com.apple.quarantine /Applications/Clippy.app</code><button type="button" id="copy">Copy</button></div></div></div>
+        <div class="step"><h3>3. Press <kbd>⌥</kbd> <kbd>V</kbd></h3><p>Your history opens above whatever you’re doing. Allow Accessibility so Clippy can paste for you.</p></div>
       </div>
     </div>
   </section>
@@ -221,8 +229,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
 <footer>
   <div class="wrap">
-    <span>© Clippy · Made by Anuj Wadi</span>
-    <span><a href="https://github.com/AnujWadi-Git/Clippy">GitHub</a> · <a href="https://www.anujwadi.com/">anujwadi.com</a></span>
+    <div class="fgrid">
+      <div class="fbrand"><img src="clippy-icon.png" alt="" width="28" height="28"><p>Clippy keeps your clipboard history on your Mac and deletes it after 24 hours.</p></div>
+      <div><h4>Clippy</h4><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#install">Install</a><a href="#faq">FAQ</a></div>
+      <div><h4>Project</h4><a href="https://github.com/AnujWadi-Git/Clippy">Source on GitHub</a><a href="https://github.com/AnujWadi-Git/Clippy/releases">Releases</a><a href="https://github.com/AnujWadi-Git/Clippy/issues">Report a problem</a></div>
+      <div><h4>Made by</h4><a href="https://www.anujwadi.com/">anujwadi.com</a></div>
+    </div>
+    <div class="fbase"><span>© Clippy</span><span>Free. macOS 14 or later, Apple silicon.</span></div>
   </div>
 </footer>
 
