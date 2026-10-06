@@ -53,7 +53,7 @@ nav .sp{flex:1}
 
 /* hero */
 .hero{padding:clamp(40px,5vw,96px) 0 clamp(32px,4vw,72px)}
-.hero .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(40px,5vw,96px);align-items:center}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(40px,5vw,96px);align-items:center}
 .shot{background:var(--tint);border-radius:32px;padding:clamp(28px,3.4vw,72px) 0 clamp(28px,3.4vw,72px) clamp(28px,3.4vw,72px);overflow:hidden}
 .shot img{border-radius:14px 0 0 14px;box-shadow:0 30px 60px -20px #0006,0 0 0 1px #ffffff1a}
 h1{font:600 clamp(2.4rem,1rem + 4vw,5rem)/1.04 var(--font);letter-spacing:-.03em}
@@ -67,8 +67,8 @@ h2{font:600 clamp(1.9rem,1.1rem + 2.4vw,3.2rem)/1.1 var(--font);letter-spacing:-
 .sub{color:var(--ink2);margin-top:14px;max-width:34em}
 .alt{background:var(--bg2)}
 
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}
+.card{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
 .card h3{font:600 1.15rem var(--font);margin-bottom:8px;letter-spacing:-.01em}
 .card p{color:var(--ink2);font-size:.98rem}
 .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:.9rem;margin-bottom:16px}
@@ -76,7 +76,7 @@ h2{font:600 clamp(1.9rem,1.1rem + 2.4vw,3.2rem)/1.1 var(--font);letter-spacing:-
 .cmd code{font:.8rem ui-monospace,SFMono-Regular,Menlo,monospace;overflow-x:auto;white-space:nowrap;flex:1}
 .cmd button{font:500 .8rem var(--font);padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 
-.row{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
 .row+.row{margin-top:96px}
 .row.flip .txt{order:2}
 .row .shot{padding:32px}
@@ -85,7 +85,7 @@ h2{font:600 clamp(1.9rem,1.1rem + 2.4vw,3.2rem)/1.1 var(--font);letter-spacing:-
 .txt p{color:var(--ink2);margin-top:14px;max-width:30em}
 kbd{font:500 .85em var(--font);padding:.1em .5em;border-radius:6px;background:var(--bg2);border:1px solid var(--line);border-bottom-width:2px}
 
-.privacy{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.privacy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:40px}
 .privacy .card ul{list-style:none;padding:0;color:var(--ink2);font-size:.98rem}
 .privacy li{padding:9px 0;border-top:1px solid var(--line)}.privacy li:first-child{border-top:0}
 
@@ -102,8 +102,9 @@ footer{border-top:1px solid var(--line);padding:36px 0;color:var(--ink2);font-si
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
+@media(max-width:1100px){.cards{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:900px){
-  .hero .grid,.row,.privacy,.cards{grid-template-columns:1fr}
+  .hero .grid,.row,.privacy{grid-template-columns:minmax(0,1fr)}
   .row.flip .txt{order:0}
   .shot{padding:24px 0 24px 24px}.row .shot{padding:20px}
   nav .links{display:none}
