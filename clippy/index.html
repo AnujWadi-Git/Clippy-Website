@@ -19,7 +19,7 @@
   --accent:#8b5cf6;--accent-ink:#c4b0ff;--tint:linear-gradient(135deg,#3b2a73,#2c2257 55%,#241d4a);
 }}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
 body{background:var(--bg);color:var(--ink);font:400 clamp(1.0625rem,1rem + .15vw,1.2rem)/1.55 var(--font);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
@@ -36,6 +36,16 @@ nav .links a{text-decoration:none}nav .links a:hover{color:var(--ink)}
 nav .sp{flex:1}
 .nbtn{font-size:.9rem;font-weight:500;text-decoration:none;padding:8px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
 
+/* sub-bar and mobile menu */
+.subbar{border-top:1px solid var(--line);font-size:.82rem;color:var(--ink2)}
+.subbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+.subbar a{text-decoration:none}.subbar a:hover{color:var(--ink)}
+.menu{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;place-items:center}
+.menu svg{width:18px;height:18px}
+.mpanel{display:none;border-top:1px solid var(--line);background:var(--bg)}
+.mpanel a{display:block;padding:14px 0;text-decoration:none;border-bottom:1px solid var(--line);font-size:1.02rem}
+.mpanel a:last-child{border-bottom:0}
+nav.open .mpanel{display:block}
 /* pearl button (kept from FlipFlick) */
 .pearl-btn{--sheen:#efe6ffe6;display:inline-flex;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;position:relative;font:600 1rem var(--font);transition:box-shadow .2s,transform .2s;
   box-shadow:inset 0 .3rem .9rem #ffffff40,inset 0 -.1rem .3rem #0000008c,inset 0 -.4rem .9rem #00000040,0 1.4rem 2rem -1rem #8b5cf68c,0 .5rem .8rem -.5rem #0009}
@@ -116,6 +126,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;color:var(--ink2);fo
   .row.flip .txt{order:0}
   .shot{padding:24px 0 24px 24px}.row .shot{padding:20px}
   nav .links{display:none}
+  .menu{display:grid}
   section{padding:60px 0}.row+.row{margin-top:64px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -128,7 +139,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;color:var(--ink2);fo
     <div class="links"><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#install">Install</a><a href="#faq">FAQ</a></div>
     <span class="sp"></span>
     <a class="nbtn" href="Clippy.dmg" download>Download</a>
+    <button class="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mpanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
+  <div class="mpanel" id="mpanel"><div class="wrap"><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#install">Install</a><a href="#faq">FAQ</a></div></div>
+  <div class="subbar"><div class="wrap"><span>Download</span><a href="#install">Install steps ↓</a></div></div>
 </nav>
 
 <main id="top">
@@ -240,6 +254,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;color:var(--ink2);fo
 </footer>
 
 <script>
+(function(){
+  var nav=document.querySelector('nav'),m=document.querySelector('.menu');
+  m.addEventListener('click',function(){var o=nav.classList.toggle('open');m.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('.mpanel a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');m.setAttribute('aria-expanded','false')})});
+})();
 (function(){
   var b=document.getElementById('copy'),c=document.getElementById('cmd');
   if(!b)return;
