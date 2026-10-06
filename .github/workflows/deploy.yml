@@ -1,8 +1,7 @@
 name: Deploy
 
 on:
-  push:
-    branches: [main]
+  # Automatic deploys are off: upload by hand in Cloudflare, or run this manually.
   workflow_dispatch:
 
 concurrency:

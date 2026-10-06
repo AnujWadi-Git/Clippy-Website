@@ -3,8 +3,8 @@
 Static download page for [Clippy](https://github.com/AnujWadi-Git/Clippy). No build step.
 
 - `clippy/index.html` is the page. `clippy/Clippy.dmg` is the download.
-- Every push to `main` runs `scripts/check.py` and deploys to Cloudflare Pages.
-- Pull requests run the checks only.
+- Every push and pull request runs `scripts/check.py` (CI).
+- Deploying is manual: upload this folder in Cloudflare Pages, or run the Deploy workflow by hand.
 
 ## One-time setup
 Repo secrets: `CLOUDFLARE_API_TOKEN` (Pages: Edit), `CLOUDFLARE_ACCOUNT_ID`.
