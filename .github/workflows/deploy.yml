@@ -19,6 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 scripts/check.py
+      - name: Create the Pages project if it doesn't exist yet
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create ${{ vars.CF_PAGES_PROJECT || 'clippy' }} --production-branch=main
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
